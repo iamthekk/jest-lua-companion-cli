@@ -1,0 +1,75 @@
+{
+  "name": "TestProject",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "TS": {
+        "$className": "Folder",
+        "Runtime": {
+          "$className": "Folder",
+          "__tests__": {
+            "$className": "Folder",
+            "os-lib": {
+              "$className": "Folder",
+              "jack.lua": {
+                "$path": "src/tests/os-lib.spec.lua"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "rbxts_include": {
+        "$className": "Folder",
+        "node_modules": {
+          "$className": "Folder",
+          "@rbxts": {
+            "$className": "Folder",
+            "JestLua": {
+              "$className": "Folder",
+              "node_modules": {
+                "$className": "Folder",
+                "@jsdotlua": {
+                  "$className": "Folder",
+                  "jest-circus": {
+                    "$className": "Folder",
+                    "src": {
+                      "$className": "Folder",
+                      "circus": {
+                        "$className": "Folder",
+                        "utils.lua": {
+                          "$path": "src/tests/mock-utils.lua"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "ReactLua": {
+              "$className": "Folder",
+              "node_modules": {
+                "$className": "Folder",
+                "@jsdotlua": {
+                  "$className": "Folder",
+                  "promise": {
+                    "$className": "Folder",
+                    "lib": {
+                      "$className": "Folder",
+                      "promise.lua": {
+                        "$path": "src/tests/mock-promise.lua"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

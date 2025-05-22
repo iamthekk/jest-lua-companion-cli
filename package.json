@@ -1,0 +1,17 @@
+{
+  "name": "roblox-ts-jest-companion-cli",
+  "version": "0.1.0",
+  "main": "index.js",
+  "bin": {
+    "jest-lua-companion-cli": "./target/release/jest-lua-companion-cli.exe"
+  },
+  "files": [
+    "target/release/jest-lua-companion-cli.exe",
+    "Plugin"
+  ],
+  "scripts": {
+    "prepare": "cargo build --release",
+    "build": "cargo build",
+    "run": "cargo run"
+  }
+}

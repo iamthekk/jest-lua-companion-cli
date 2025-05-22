@@ -1,0 +1,11 @@
+{
+  "roots": ["ServerScriptService/TS"],
+  "runCLI-options": {
+    "ci": true,
+    "clearMocks": true,
+    "testNamePattern": "test.*",
+    "testMatch": ["**/*.spec.lua"],
+    "verbose": true
+  },
+  "rojoSourceMapCommand": "rojo sourcemap"
+}

@@ -1,0 +1,4 @@
+{
+  "roots": ["ServerScriptService/TS"],
+  "rojoSourceMapCommand": "rojo sourcemap D:/projects/roblox-ts/roblox-ts-jest-jack/default.project.json"
+}
