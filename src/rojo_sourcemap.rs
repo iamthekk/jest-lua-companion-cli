@@ -170,7 +170,6 @@ pub fn get_sourcemap(
 ) -> Result<RojoSourceMap, Box<dyn Error>> {
     // 记录将要执行的命令和工作目录
     let cmd_info = format!(
-        "执行命令: {}{}",
         command,
         if let Some(dir) = config_dir {
             format!(" (在目录: {})", dir)
@@ -207,7 +206,6 @@ pub fn get_sourcemap(
                 if output.status.success() {
                     sourcemap_json = String::from_utf8_lossy(&output.stdout).to_string();
                     success = true;
-                    eprintln!("powershell.exe 方法成功");
                 } else {
                     let error = String::from_utf8_lossy(&output.stderr);
                     eprintln!("powershell.exe 方法失败: {}", error);
@@ -239,7 +237,6 @@ pub fn get_sourcemap(
                 if output.status.success() {
                     sourcemap_json = String::from_utf8_lossy(&output.stdout).to_string();
                     success = true;
-                    eprintln!("cmd.exe 方法成功");
                 } else {
                     let error = String::from_utf8_lossy(&output.stderr);
                     eprintln!("cmd.exe 方法失败: {}", error);
@@ -286,10 +283,7 @@ pub fn get_sourcemap(
     let clean_json = &sourcemap_json[json_start..];
 
     // 记录解析的JSON前100个字符
-    eprintln!(
-        "JSON前缀: {}",
-        &clean_json[..std::cmp::min(100, clean_json.len())]
-    );
+    eprintln!(&clean_json[..std::cmp::min(100, clean_json.len())]);
 
     // 尝试解析JSON
     match RojoSourceMap::new(clean_json) {
