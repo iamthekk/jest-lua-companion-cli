@@ -13,5 +13,8 @@
     "prepare": "cargo build --release",
     "build": "cargo build",
     "run": "cargo run"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
