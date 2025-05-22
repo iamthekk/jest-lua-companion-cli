@@ -13,7 +13,7 @@
 
 ## 配置
 
-在项目根目录下创建 `jest-lua.config.json` 文件：
+在项目根目录下创建 `jest-lua-companion.config.json` 文件：
 
 ```json
 {

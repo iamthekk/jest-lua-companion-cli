@@ -168,16 +168,7 @@ pub fn get_sourcemap(
     command: &str,
     config_dir: Option<&str>,
 ) -> Result<RojoSourceMap, Box<dyn Error>> {
-    // 记录将要执行的命令和工作目录
-    let cmd_info = format!(
-        command,
-        if let Some(dir) = config_dir {
-            format!(" (在目录: {})", dir)
-        } else {
-            String::new()
-        }
-    );
-    eprintln!("{}", cmd_info);
+    
 
     // 创建一个默认的空sourcemap作为fallback
     let empty_sourcemap = r#"{"entries":{}}"#;
@@ -281,9 +272,6 @@ pub fn get_sourcemap(
     // 移除可能存在的非JSON输出前缀
     let json_start = sourcemap_json.find('{').unwrap_or(0);
     let clean_json = &sourcemap_json[json_start..];
-
-    // 记录解析的JSON前100个字符
-    eprintln!(&clean_json[..std::cmp::min(100, clean_json.len())]);
 
     // 尝试解析JSON
     match RojoSourceMap::new(clean_json) {
