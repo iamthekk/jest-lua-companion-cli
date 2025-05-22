@@ -1,6 +1,6 @@
 {
-  "name": "roblox-ts-jest-companion-cli",
-  "version": "0.1.1",
+  "name": "jest-lua-companion-cli",
+  "version": "0.1.0",
   "main": "index.js",
   "bin": {
     "jest-lua-companion-cli": "./target/release/jest-lua-companion-cli.exe"
