@@ -77,6 +77,43 @@ npx jest-lua-companion-cli -t "testName"
 
 你也可以将其加入 pre-commit 钩子，在提交前确保测试通过（当然，需要你的 Place 已在 Studio 中打开）。
 
+## 开发
+
+### 构建和运行
+
+```bash
+# 构建项目
+cargo build
+
+# 运行CLI
+cargo run
+```
+
+### 运行单元测试
+
+项目包含完整的单元测试套件，覆盖了核心功能模块：
+
+```bash
+# 运行所有测试
+cargo test
+
+# 运行特定模块的测试
+cargo test --lib config
+cargo test --lib rojo_sourcemap
+cargo test --lib jest_results
+
+# 查看测试输出
+cargo test -- --nocapture
+```
+
+### 测试覆盖范围
+
+单元测试覆盖以下模块：
+
+- `config.rs`: 配置解析和序列化
+- `rojo_sourcemap.rs`: Rojo源码映射处理和堆栈跟踪转换
+- `jest_results.rs`: Jest测试结果解析和格式化
+
 ## 其他
 
 - 本地服务和roblox插件指向: `http://127.0.0.1:28860`
