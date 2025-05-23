@@ -105,7 +105,7 @@ mod tests {
 
     #[test]
     fn test_config_serialization() {
-        let mut run_cli_options = RunCliOptions {
+        let run_cli_options = RunCliOptions {
             ci: Some(true),
             clear_mocks: Some(true),
             debug: None,
