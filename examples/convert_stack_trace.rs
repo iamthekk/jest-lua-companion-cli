@@ -1,4 +1,7 @@
-use jest_lua_companion_cli::rojo_sourcemap::{RojoSourceMap, convert_stack_trace};
+#[path = "../src/rojo_sourcemap.rs"]
+mod rojo_sourcemap;
+
+use rojo_sourcemap::{RojoSourceMap, convert_stack_trace};
 
 fn main() {
     // This is a simple example of using the convert_stack_trace function

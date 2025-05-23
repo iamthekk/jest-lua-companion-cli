@@ -68,5 +68,3 @@ pub struct ConfigResponse {
     #[serde(rename = "runCLI-options")]
     pub run_cli_options: Option<RunCliOptions>,
 }
-
-

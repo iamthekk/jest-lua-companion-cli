@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::process::Command;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug)]
 #[allow(non_snake_case)]
 pub struct RojoSourceMapEntry {
     #[serde(default)]
@@ -13,7 +13,7 @@ pub struct RojoSourceMapEntry {
     pub filePaths: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug)]
 #[allow(non_snake_case)]
 pub struct RojoSourceMapNode {
     pub name: String,
@@ -24,7 +24,7 @@ pub struct RojoSourceMapNode {
     pub children: Vec<RojoSourceMapNode>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RojoSourceMap {
     #[serde(flatten)]
     entries: HashMap<String, RojoSourceMapEntry>,
@@ -136,29 +136,6 @@ impl RojoSourceMap {
         }
 
         None
-    }
-    
-    // Helper methods for tests
-    pub fn get_path_map(&self) -> &HashMap<String, String> {
-        &self.path_map
-    }
-    
-    pub fn get_path_map_mut(&mut self) -> &mut HashMap<String, String> {
-        &mut self.path_map
-    }
-    
-    pub fn get_entries(&self) -> &HashMap<String, RojoSourceMapEntry> {
-        &self.entries
-    }
-    
-    pub fn create_test_sourcemap(
-        entries: HashMap<String, RojoSourceMapEntry>, 
-        path_map: HashMap<String, String>
-    ) -> Self {
-        RojoSourceMap {
-            entries,
-            path_map,
-        }
     }
 }
 
@@ -326,7 +303,7 @@ pub fn convert_stack_trace(line: &str, sourcemap: &RojoSourceMap) -> String {
                 let simplified_path = datamodel_path.replace("@", "");
 
                 // 尝试在路径映射中查找简化后的路径
-                for (key, path) in sourcemap.get_path_map() {
+                for (key, path) in &sourcemap.path_map {
                     let simplified_key = key.replace("@", "");
 
                     // 如果简化后的键包含简化后的路径
@@ -341,7 +318,7 @@ pub fn convert_stack_trace(line: &str, sourcemap: &RojoSourceMap) -> String {
                     let last_part = parts[parts.len() - 1];
 
                     // 查找包含最后一部分的路径
-                    for (key, path) in sourcemap.get_path_map() {
+                    for (key, path) in &sourcemap.path_map {
                         if key.contains(last_part) {
                             return format!("{}:{}", path, line_number);
                         }
@@ -367,5 +344,3 @@ pub fn convert_stack_trace_text(text: &str, sourcemap: &RojoSourceMap) -> String
 
     result.join("\n")
 }
-
-

@@ -1,4 +1,10 @@
-use jest_lua_companion_cli::config::{Config, ConfigResponse, RunCliOptions};
+#[path = "../src/config.rs"]
+mod config;
+
+use serde_json::{json, to_string, from_str};
+use std::collections::HashMap;
+
+use config::*;
 use serde_json::{json, to_string, from_str};
 use std::collections::HashMap;
 

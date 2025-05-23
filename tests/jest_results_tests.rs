@@ -1,4 +1,8 @@
-use jest_lua_companion_cli::jest_results::{JestResults, print_jest_test_results};
+#[path = "../src/jest_results.rs"]
+mod jest_results;
+
+use serde_json::json;
+use jest_results::*;
 use serde_json::json;
 
 #[test]

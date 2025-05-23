@@ -1,4 +1,44 @@
-use jest_lua_companion_cli::rojo_sourcemap::{RojoSourceMap, RojoSourceMapEntry, convert_stack_trace, convert_stack_trace_text};
+#[path = "../src/rojo_sourcemap.rs"]
+mod rojo_sourcemap;
+
+use std::collections::HashMap;
+use serde_json::from_str;
+use rojo_sourcemap::*;
+
+// Test helper functions
+impl RojoSourceMap {
+    pub fn get_path_map(&self) -> &HashMap<String, String> {
+        &self.path_map
+    }
+    
+    pub fn get_path_map_mut(&mut self) -> &mut HashMap<String, String> {
+        &mut self.path_map
+    }
+    
+    pub fn get_entries(&self) -> &HashMap<String, RojoSourceMapEntry> {
+        &self.entries
+    }
+    
+    pub fn create_test_sourcemap(
+        entries: HashMap<String, RojoSourceMapEntry>, 
+        path_map: HashMap<String, String>
+    ) -> Self {
+        RojoSourceMap {
+            entries,
+            path_map,
+        }
+    }
+}
+
+// Implement Clone for RojoSourceMap for tests
+impl Clone for RojoSourceMap {
+    fn clone(&self) -> Self {
+        RojoSourceMap {
+            entries: self.entries.clone(),
+            path_map: self.path_map.clone(),
+        }
+    }
+}
 use std::collections::HashMap;
 
 #[test]
