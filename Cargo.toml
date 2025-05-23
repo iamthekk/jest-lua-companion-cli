@@ -9,6 +9,14 @@ repository = "https://github.com/WhiteDragonRoblox/jest-lua-companion-cli"
 homepage = "https://github.com/WhiteDragonRoblox/jest-lua-companion-cli"
 readme = "README.md"
 
+[lib]
+name = "jest_lua_companion_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "jest-lua-companion-cli"
+path = "src/main.rs"
+
 [dependencies]
 axum = "0.7.5"
 axum-server = "0.6.0"
