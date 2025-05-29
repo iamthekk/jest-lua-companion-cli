@@ -1,13 +1,15 @@
 {
   "name": "jest-lua-companion-cli",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "main": "index.js",
   "bin": {
-    "jest-lua-companion-cli": "./target/release/jest-lua-companion-cli.exe"
+    "jest-lua-companion-cli": "./target/release/jest-lua-companion-cli.exe",
+    "jest-lua-companion": "./scripts/init.js"
   },
   "files": [
     "target/release/jest-lua-companion-cli.exe",
-    "Plugin"
+    "plugin",
+    "scripts"
   ],
   "scripts": {
     "prepare": "cargo build --release",

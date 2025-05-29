@@ -3,6 +3,7 @@
 致谢：
 
 - [jackTabsCode](https://github.com/jackTabsCode/testez-companion-cli)
+- [charm-example](https://github.com/littensy/charm-example)
 
 
 ## 功能
@@ -49,7 +50,7 @@ npm install jest-lua-companion-cli
 
 **安装插件**
 
-复制 `Plugin/jest-roblox-companion-plugin.server.lua` 到 `roblox` 插件目录.
+复制 `Plugin/jest-lua-companion-plugin.server.lua` 到 `roblox` 插件目录.
 
 ## 用法
 
@@ -76,6 +77,16 @@ npx jest-lua-companion-cli -t "testName"
 只需在终端运行 `jest-lua-companion-cli`。如果有多个 Place 打开，会提示你选择一个。随后会输出测试结果！
 
 你也可以将其加入 pre-commit 钩子，在提交前确保测试通过（当然，需要你的 Place 已在 Studio 中打开）。
+
+
+## FFlag
+
+必须配置指定FFlag后, 才能在Studio中运行测试.
+
+- shell:[charm-example](https://github.com/littensy/charm-example)
+- windows: `npx jest-lua-companion init`, 本指令会同时复制插件到 roblox 插件目录, 并进行FFlag修改.
+- 手工: 修改 Studio 安装目录下的 `ClientSettings/ClientAppSettings.json` 文件, 设置`FFlagEnableLoadModule` 为 `true`.
+
 
 ## 其他
 
