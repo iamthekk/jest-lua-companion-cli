@@ -44,12 +44,12 @@ function getStudiotPath() {
         if (process.platform === 'win32') {
             // 从注册表获取 Studio 的 ContentFolder
             const contentFolder = getRegistryValue(
-                'HKEY_CURRENT_USER\\SOFTWARE\\Roblox\\RobloxStudio',
-                'ContentFolder'
+                'HKEY_CURRENT_USER\\SOFTWARE\\ROBLOX Corporation\\Environments\\roblox-studio',
+                'clientExe'
             );
 
             if (contentFolder && fs.existsSync(contentFolder)) {
-                var studioFolder = contentFolder.replace(/[\\/]content[\\/]?$/, '');
+                var studioFolder = contentFolder.replace(/[\\/]RobloxStudioBeta\.exe[\\/]?$/, '');
                 return studioFolder;
             }
         }
